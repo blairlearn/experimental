@@ -1,1 +1,1 @@
-def inner  = evaluate readFile("inner.groovy")
+def inner  = load "inner.groovy"
