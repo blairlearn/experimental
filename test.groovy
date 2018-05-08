@@ -1,1 +1,1 @@
-evaluate(new File("Inner.groovy"))
+evaluate(new File("./Inner.groovy"))
