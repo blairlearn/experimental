@@ -1,1 +1,2 @@
-def inner  = load "inner.groovy"
+def inner  = readFileFromWorkspace("inner.groovy")
+inner.doStuff
