@@ -1,2 +1,3 @@
 def inner  = evaluate readFileFromWorkspace("inner.groovy")
-inner.doStuff
+inner.doStuff()
+println inner.doStuff
