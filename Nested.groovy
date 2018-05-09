@@ -10,4 +10,8 @@ class Nested extends Script {
         }
     }
 
+    static void main (String[] args) {
+        InvokerHelper.runScript(Nested, args)
+    }
+
 }
