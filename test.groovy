@@ -5,3 +5,4 @@
 //println "Fine"
 
 import Nested
+Nested.run
