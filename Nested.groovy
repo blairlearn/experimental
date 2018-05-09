@@ -10,6 +10,3 @@ def doStuff() {
     }
 }
 
-//return [
-//    doStuff: this.&doStuff
-//]
