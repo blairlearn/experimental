@@ -5,4 +5,5 @@
 //println "Fine"
 
 import Nested
-Nested.run
+def foo = new Nested()
+foo.run()
