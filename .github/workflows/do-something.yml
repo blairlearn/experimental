@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run an action
-        uses: blairlearn/build-info@main
-        #with:
-        #  output-name: 
+      #- name: Run an action
+      #  uses: blairlearn/build-info@main
+      #  with:
+      #    output-name: 
         
       - name: Hello
         run: echo "Hello there."
