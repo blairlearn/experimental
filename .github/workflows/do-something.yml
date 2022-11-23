@@ -17,8 +17,8 @@ jobs:
       - name: Hello
         run: echo "Hello there."
           
-      #- name: Run an action
-      #  uses: blairlearn/build-info@main
+      - name: Run an action
+        uses: blairlearn/build-info@main
       #  with:
       #    output-name: 
         
