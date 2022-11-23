@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Run an action
-        uses: blairlearn/build-info@master
+        uses: blairlearn/build-info@main
         #with:
         #  output-name: 
           
