@@ -28,7 +28,7 @@ jobs:
         uses: blairlearn/build-info@main
       #  with:
       #    output-name: 
-      
+
       - name: Goodbye
         run: echo "Bye now!"
-          
+
