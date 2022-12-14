@@ -21,9 +21,43 @@ jobs:
 
       - name: Run an action
         uses: blairlearn/build-info@main
-      #  with:
-      #    output-name: 
-      
+        with:
+          output-name: build-info-action.json
+
+      - name: dump
+        run: cat build-info-action.json
+
+      - name: Old school
+        run: |
+          ## PUSH
+          if [ "${{ github.event_name }}" == "push" ]; then
+            BUILD_NAME=$(sed -E 's/refs\/(heads|tags)\///; s/\//__/g;' <<< $GITHUB_REF)
+            BRANCH_NAME=$(sed -E 's/refs\/(heads|tags)\///;' <<< $GITHUB_REF)
+            COMMIT_HASH=$(echo "${GITHUB_SHA}")
+          ## PULL_REQUEST
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            BUILD_NAME=$(echo "pr-${{ github.event.pull_request.number }}")
+            BRANCH_NAME=$(echo "pr-${{ github.event.pull_request.number }}")
+            COMMIT_HASH=$(echo "${{ github.event.pull_request.head.sha }}")
+          else
+            ## ERROR
+            exit 1
+          fi
+          ## For step checks and artifact deployment path.
+          ## Same for push and PR
+          export REPO_FULL=${{ github.repository }}
+          export REPO_RE='([^/]+)/(.*)'
+          [[ "$REPO_FULL" =~ $REPO_RE ]]
+          REPO_OWNER=$(echo "${BASH_REMATCH[1]}")
+          REPO_NAME=$(echo "${BASH_REMATCH[2]}")
+
+          echo "build_name: ${BUILD_NAME}"
+          echo "branch_name: ${BRANCH_NAME}"
+          echo "commit_hash: ${COMMIT_HASH}"
+          echo "repo_owner: ${REPO_OWNER}"
+          echo "repo_name: ${REPO_NAME}"
+
+
       - name: Goodbye
         run: echo "Bye now!"
-          
+
