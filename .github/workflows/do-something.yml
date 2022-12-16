@@ -20,7 +20,7 @@ jobs:
         run: echo "Hello there."
 
       - name: Run an action
-        uses: blairlearn/build-info@main
+        uses: blairlearn/build-info@v1.0.0
         with:
           output-name: build-info-action.json
 
