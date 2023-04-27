@@ -18,6 +18,14 @@ jobs:
     steps:
       - name: Hello
         run: echo "Hello there."
+        
+      - name: I can has Docker?
+        run: |
+          docker --help
+        
+      - name: I can has Compose too?
+        run: |
+          docker compose --help
 
       - name: Run an action
         uses: blairlearn/build-info@v1.0.0
