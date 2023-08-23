@@ -23,7 +23,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            console.log(JSON.strngify(context, null, 2));
+            console.log(JSON.stringify(context, null, 2));
         
       - name: I can has Docker?
         run: |
