@@ -31,7 +31,6 @@ jobs:
             console.log('    actor_id: ' + github.actor_id);
             console.log('      action: ' + github.action);
             console.log(' ');
-            console.log('container id: ' + job.container.id);
             console.log(' ');
             console.log('    step id: ' + JSON.stringify(steps.dump, null, 2));
             
