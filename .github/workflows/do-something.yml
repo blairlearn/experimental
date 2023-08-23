@@ -32,7 +32,7 @@ jobs:
             console.log('      action: ' + github.action);
             console.log(' ');
             console.log(' ');
-            console.log('    step id: ' + JSON.stringify(build, null, 2));
+            console.log('    step id: ' + JSON.stringify(${{build}}, null, 2));
             
         
       - name: I can has Docker?
