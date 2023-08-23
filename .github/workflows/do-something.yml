@@ -24,6 +24,8 @@ jobs:
         with:
           script: |
             console.log(JSON.stringify(context, null, 2));
+            console.log(JSON.stringify(github, null, 2));
+            console.log(`step: ${{ github.id }}`);
         
       - name: I can has Docker?
         run: |
