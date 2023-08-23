@@ -23,9 +23,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            console.log(JSON.stringify(context, null, 2));
-            console.log(JSON.stringify(github, null, 2));
-            console.log(`step: ${{ github.id }}`);
+            //console.log(JSON.stringify(context, null, 2));
+            console.log('runNumber: ' + context.runNumber);
+            console.log('    runID: ' + context.runId);
+            console.log('github.id: ' + github.id);
+            
         
       - name: I can has Docker?
         run: |
