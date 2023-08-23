@@ -34,7 +34,7 @@ jobs:
             console.log('      action: ' + github.action);
             console.log(' ');
             console.log(' ');
-            console.log('          id: ' + ${{env.ID}} );
+            console.log('          id: ' + env.ID );
             
         
       - name: I can has Docker?
