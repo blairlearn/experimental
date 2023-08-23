@@ -20,13 +20,20 @@ jobs:
         run: echo "Hello there."
 
       - name: Context dump
+        id: dump
         uses: actions/github-script@v6
         with:
           script: |
             //console.log(JSON.stringify(context, null, 2));
-            console.log('runNumber: ' + context.runNumber);
-            console.log('    runID: ' + context.runId);
-            console.log('github.id: ' + github.id);
+            console.log('   runNumber: ' + context.runNumber);
+            console.log('       runID: ' + context.runId);
+            console.log('   github.id: ' + github.id);
+            console.log('    actor_id: ' + github.actor_id);
+            console.log('      action: ' + github.action);
+            console.log(' ');
+            console.log('container id: ' + job.container.id);
+            console.log(' ');
+            console.log('    step id: ' + JSON.stringify(steps.dump, null, 2));
             
         
       - name: I can has Docker?
