@@ -22,7 +22,7 @@ jobs:
       - name: Context dump
         id: dump
         env:
-          ID=${{github.id}}
+          ID: ${{github.id}}
         uses: actions/github-script@v6
         with:
           script: |
