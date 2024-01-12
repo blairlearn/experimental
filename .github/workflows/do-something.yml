@@ -92,6 +92,7 @@ jobs:
       - name: Is Xvfb running?
         run: |
           env
+          ls -l /tmp/.X11-unix
         shell: bash
 
       - name: Goodbye
