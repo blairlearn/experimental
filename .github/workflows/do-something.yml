@@ -91,7 +91,7 @@ jobs:
 
       - name: Is Xvfb running?
         run: |
-          env | grep DISPLAY
+          env
         shell: bash
 
       - name: Goodbye
