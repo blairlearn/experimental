@@ -91,7 +91,7 @@ jobs:
 
       - name: Is Xvfb running?
         run: |
-          env
+          Xvfb &
           ls -l /tmp/.X11-unix
         shell: bash
 
