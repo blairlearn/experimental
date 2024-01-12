@@ -91,10 +91,12 @@ jobs:
 
       - name: Is Xvfb running?
         run: |
-          Xvfb &
+          Xvfb :99&
           while [ ! -e /tmp/.X11-unix/X99 ]; do sleep 0.1; done
           ls -l /tmp/.X11-unix
         shell: bash
+
+
 
       - name: Goodbye
         run: echo "Bye now!"
