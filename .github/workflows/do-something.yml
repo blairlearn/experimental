@@ -91,7 +91,6 @@ jobs:
 
       - name: Is Xvfb running?
         run: |
-          ls -al /tmp/ | grep -i X11
           env | grep DISPLAY
         shell: bash
 
