@@ -91,9 +91,9 @@ jobs:
 
       - name: Is Xvfb running?
         run: |
-          # ls -al /tmp/ | grep -i X11
-          # ls -al /tmp/.X11-unix
+          ls -al /tmp/ | grep -i X11
           env | grep DISPLAY
+        shell: bash
 
       - name: Goodbye
         run: echo "Bye now!"
