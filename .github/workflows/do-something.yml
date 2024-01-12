@@ -36,12 +36,12 @@ jobs:
             console.log(' ');
             console.log('          id: ' + process.env.ID );
             console.log(JSON.stringify(process.env, null, 2));
-            
-        
+
+
       - name: I can has Docker?
         run: |
           docker --help
-        
+
       - name: I can has Compose too?
         run: |
           docker compose --help
@@ -84,6 +84,13 @@ jobs:
           echo "repo_owner: ${REPO_OWNER}"
           echo "repo_name: ${REPO_NAME}"
 
+      - name: Run an action
+        uses: blairlearn/build-info@main
+      #  with:
+      #    output-name:
+
+      - name: Is Xvfb running?
+        run: ls -al /tmp/ | grep -i X11
 
       - name: Goodbye
         run: echo "Bye now!"
