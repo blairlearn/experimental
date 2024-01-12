@@ -90,7 +90,10 @@ jobs:
       #    output-name:
 
       - name: Is Xvfb running?
-        run: ls -al /tmp/ | grep -i X11
+        run: |
+          ls -al /tmp/ | grep -i X11
+          ls -al /tmp/.X11-unix
+          env | grep DISPLAY
 
       - name: Goodbye
         run: echo "Bye now!"
