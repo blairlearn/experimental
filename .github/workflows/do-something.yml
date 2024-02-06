@@ -39,7 +39,7 @@ jobs:
 
       - name: get the ip
         id: ip
-        run: ipconfig
+        run: ifconfig
 
 
       - name: I can has Docker?
