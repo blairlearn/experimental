@@ -37,6 +37,10 @@ jobs:
             console.log('          id: ' + process.env.ID );
             console.log(JSON.stringify(process.env, null, 2));
 
+      - name: get the ip
+        id: ip
+        run: ipconfig
+
 
       - name: I can has Docker?
         run: |
