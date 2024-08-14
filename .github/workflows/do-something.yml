@@ -100,7 +100,11 @@ jobs:
           ls -l /tmp/.X11-unix
         shell: bash
 
-
+      - name: Upload entire directory as an artifact (Bad idea)
+        uses: actions/upload-artifact@v4
+        with:
+          name: bad-idea
+          path: .
 
       - name: Goodbye
         run: echo "Bye now!"
