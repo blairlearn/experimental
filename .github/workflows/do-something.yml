@@ -100,8 +100,11 @@ jobs:
           ls -l /tmp/.X11-unix
         shell: bash
 
-      - name: Upload entire directory as an artifact (Bad idea)
-        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload entire directory as an artifact. Bad idea as this includes the .git directory
+        uses: actions/upload-artifact@v4
         with:
           name: bad-idea
           path: .
