@@ -25,6 +25,9 @@ jobs:
           echo -e "\n\nChrome is in: '$(which chrome)'\n\n"
           node --eval="console.log(process.env.CHROME_BIN)"
 
+          export CHROME_BIN=$CHROME_BIN
+          echo -e "\n\nValue is: '$CHROME_BIN'\n\n"
+
       - name: Context dump
         id: dump
         env:
