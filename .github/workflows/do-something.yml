@@ -19,6 +19,11 @@ jobs:
       - name: Hello
         run: echo "Hello there."
 
+      - name: Where's chrome?
+        run: |
+          env
+          echo -e "\n\nChrome is in: '$(which chrome)'\n\n"
+
       - name: Context dump
         id: dump
         env:
