@@ -23,6 +23,7 @@ jobs:
         run: |
           env
           echo -e "\n\nChrome is in: '$(which chrome)'\n\n"
+          node --eval="console.log(process.env.CHROME_BIN)"
 
       - name: Context dump
         id: dump
