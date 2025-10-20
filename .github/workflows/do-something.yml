@@ -22,7 +22,8 @@ jobs:
       - name: Where am I?
         run: |
           myip=$(curl -fsSL https://icanhazip.com)
-          whois $myip
+          echo "I am at: ${myip}"
+          curl -fsSL "https://ipinfo.io/${myip}"
 
       - name: Where's chrome?
         run: |
