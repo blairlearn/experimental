@@ -15,6 +15,9 @@ jobs:
       - name: Hello!
         run: echo "Hello there!"
 
+      - name: Check out code
+        uses: actions/checkout@v4
+
       - name: Set up .NET
         uses: actions/setup-dotnet@v5
         with:
