@@ -1,0 +1,26 @@
+name: Do stuff with .NET
+
+on:
+  workflow_dispatch
+  push:
+
+jobs:
+
+  do-stuff:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Hello!
+        run: echo "Hello there!"
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version '8.0.x'
+
+      - name: Run coverlet
+        run: |
+          coverlet --version
+
