@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  the-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: step1
+        name: boop
+        run: |
+          echo "Hello"
+        
