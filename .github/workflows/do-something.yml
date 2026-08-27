@@ -11,6 +11,17 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
+  job-that-fails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: hello
+        run: echo "Hello there."
+
+      - name: fail
+        run: exit 255
+      
+
   build:
 
     runs-on: ubuntu-latest
