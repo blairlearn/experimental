@@ -13,6 +13,7 @@ jobs:
 
   job-that-fails:
     runs-on: ubuntu-latest
+    continue-on-error: true
 
     steps:
       - name: hello
@@ -20,6 +21,9 @@ jobs:
 
       - name: fail
         run: exit 255
+
+      - name: step-that-never-runs
+        run: echo 'Say buh-bye!'
       
 
   build:
