@@ -24,7 +24,49 @@ jobs:
 
       - name: step-that-never-runs
         run: echo 'Say buh-bye!'
-      
+
+  matrixes-1:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: step 1
+        run: echo 'hello'
+
+      - name: maybe fail
+        run:
+          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]
+          then
+            exit 255
+          fi
+
+      - name: finish
+        run: echo 'good-bye'
+
+
+  matrixes-2:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+    #continue-on-error: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: step 1
+        run: echo 'hello'
+
+      - name: maybe fail
+        run:
+          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]
+          then
+            exit 255
+          fi
+
+      - name: finish
+        run: echo 'good-bye'
+
 
   build:
 
