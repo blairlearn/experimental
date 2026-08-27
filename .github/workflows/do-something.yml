@@ -13,7 +13,7 @@ jobs:
 
   job-that-fails:
     runs-on: ubuntu-latest
-    continue-on-error: true
+    continue-on-error: false
 
     steps:
       - name: hello
