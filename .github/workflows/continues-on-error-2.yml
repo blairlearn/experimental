@@ -1,0 +1,32 @@
+# This is a minimal workflow.
+
+name: Examples of continue-on-error
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  push:
+  pull_request:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  job-that-fails:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: hello
+        run: echo "Hello there."
+
+      - name: fail
+        run: exit 255
+
+
+  job-that-always-succeeds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello
+        run: |
+          echo 'Hi there!'
