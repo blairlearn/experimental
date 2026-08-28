@@ -1,0 +1,96 @@
+# This is a minimal workflow.
+
+name: CI
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  push:
+  pull_request:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  job-that-fails:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: hello
+        run: echo "Hello there."
+
+      - name: fail
+        run: exit 255
+
+      - name: step-that-never-runs
+        run: echo 'Say buh-bye!
+        
+  job-that-depends:
+    needs: job-that-fails
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: done
+        run: echo 'buh-bye!'
+
+  matrixes-normal:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: step 1
+        run: echo 'hello'
+
+      - name: maybe fail
+        run:
+          if [[ '${{ matrix.os }}' == 'ubuntu-22.04' ]]; then
+            exit 255;
+          fi
+
+      - name: finish
+        run: echo 'good-bye'
+
+
+  matrix-that-continues-on-error:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+    continue-on-error: ${{ matrix.os == 'ubuntu-22.04' }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: step 1
+        run: echo 'hello'
+
+      - name: maybe fail
+        run:
+          if [[ '${{ matrix.os }}' == 'ubuntu-22.04' ]]; then
+            exit 255;
+          fi
+
+      - name: finish
+        run: echo 'good-bye'
+
+
+  matrix-that-fails-slow:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: step 1
+        run: echo 'hello'
+
+      - name: maybe fail
+        run:
+          if [[ '${{ matrix.os }}' == 'ubuntu-22.04' ]]; then
+            exit 255;
+          fi
+
+      - name: finish
+        run: echo 'good-bye'
+
