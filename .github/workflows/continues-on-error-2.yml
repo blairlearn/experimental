@@ -1,6 +1,6 @@
 # This is a minimal workflow.
 
-name: Examples of continue-on-error
+name: Simplified continue-on-error
 
 on:
   # Allows you to run this workflow manually from the Actions tab
