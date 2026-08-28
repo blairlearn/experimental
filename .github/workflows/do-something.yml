@@ -26,6 +26,7 @@ jobs:
         run: echo 'Say buh-bye!'
 
   matrixes-1:
+    needs: job-that-fails
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
@@ -37,9 +38,8 @@ jobs:
 
       - name: maybe fail
         run:
-          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]
-          then
-            exit 255
+          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]; then
+            exit 255;
           fi
 
       - name: finish
@@ -47,6 +47,7 @@ jobs:
 
 
   matrixes-2:
+    needs: job-that-fails
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
@@ -59,9 +60,8 @@ jobs:
 
       - name: maybe fail
         run:
-          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]
-          then
-            exit 255
+          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]; then
+            exit 255;
           fi
 
       - name: finish
@@ -69,6 +69,7 @@ jobs:
 
 
   matrixes-3:
+    needs: job-that-fails
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
@@ -81,8 +82,7 @@ jobs:
 
       - name: maybe fail
         run:
-          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]
-          then
+          if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]; then
             exit 255
           fi
 
