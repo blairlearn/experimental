@@ -23,10 +23,17 @@ jobs:
         run: exit 255
 
       - name: step-that-never-runs
-        run: echo 'Say buh-bye!'
-
-  matrixes-1:
+        run: echo 'Say buh-bye!
+        
+  job-that-depends:
     needs: job-that-fails
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: done
+        run: echo 'buh-bye!'
+
+  matrixes-normal:
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
@@ -46,8 +53,7 @@ jobs:
         run: echo 'good-bye'
 
 
-  matrixes-2:
-    needs: job-that-fails
+  matrix-that-continues-on-error:
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
@@ -68,8 +74,7 @@ jobs:
         run: echo 'good-bye'
 
 
-  matrixes-3:
-    needs: job-that-fails
+  matrix-that-fails-slow:
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
