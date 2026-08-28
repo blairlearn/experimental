@@ -88,7 +88,7 @@ jobs:
       - name: maybe fail
         run:
           if [[ '${{ matrix.os }}' -eq 'ubuntu-22.04' ]]; then
-            exit 255
+            exit 255;
           fi
 
       - name: finish
