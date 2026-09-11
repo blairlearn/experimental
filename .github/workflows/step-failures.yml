@@ -1,0 +1,31 @@
+# What happens when a step fails but I want to keep going?
+
+name: Failure tests
+
+on:
+    workflow-dispatch:
+    push:
+
+jobs:
+
+  run-anyhow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: This step fails
+        run: exit 1
+
+      - name: This step runs anyhow
+        if: ${{ success() || failure() }}
+        run: echo 'Hello'
+
+  run-always:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: This step fails
+        run: exit 1
+
+      - name: This step runs anyhow
+        if: ${{ always() }}
+        run: echo 'Hello'
